@@ -8,9 +8,7 @@ from niyam.testing import MockBackend
 
 def test_validates_missing_project_data():
     agent = ProgramSupportAgent()
-    result = agent.run(
-        AgentInput(payload={"artifact_type": "weekly_status_report"})
-    )
+    result = agent.run(AgentInput(payload={"artifact_type": "weekly_status_report"}))
     assert result.status == "validation_error"
     assert any("project_data" in e for e in result.errors)
 

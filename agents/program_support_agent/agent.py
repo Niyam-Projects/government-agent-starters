@@ -19,9 +19,7 @@ from niyam.sdk import AgentBase, AgentInput
 class ProgramSupportAgent(AgentBase):
     name = "program_support_agent"
     version = "0.2.0"
-    description = (
-        "Generates audit-ready program artifacts from operational project data."
-    )
+    description = "Generates audit-ready program artifacts from operational project data."
 
     def __init__(self, config_path: Path | None = None) -> None:
         super().__init__(config_path)
