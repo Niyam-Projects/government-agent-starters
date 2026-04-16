@@ -15,9 +15,7 @@ def test_validates_missing_inputs():
 
 def test_rejects_non_list_artifacts():
     agent = RequirementsArchitectAgent()
-    result = agent.run(
-        AgentInput(payload={"requirements_text": "x", "artifacts": "not-a-list"})
-    )
+    result = agent.run(AgentInput(payload={"requirements_text": "x", "artifacts": "not-a-list"}))
     assert result.status == "validation_error"
     assert any("'artifacts' must be a list" in e for e in result.errors)
 
