@@ -14,7 +14,6 @@ from jinja2 import Template
 
 from niyam.sdk import AgentBase, AgentInput
 
-
 _VALID_MODES = {"generate", "refactor"}
 
 
@@ -41,14 +40,10 @@ class SecureCodeAgent(AgentBase):
 
         mode = payload.get("mode", "generate")
         if mode not in _VALID_MODES:
-            errors.append(
-                f"'mode' must be one of {sorted(_VALID_MODES)}; got '{mode}'."
-            )
+            errors.append(f"'mode' must be one of {sorted(_VALID_MODES)}; got '{mode}'.")
 
         if mode == "refactor" and not payload.get("existing_code"):
-            errors.append(
-                "'existing_code' is required in payload when mode='refactor'."
-            )
+            errors.append("'existing_code' is required in payload when mode='refactor'.")
 
         constraints = payload.get("constraints")
         if constraints is not None and not isinstance(constraints, list):
@@ -84,8 +79,6 @@ class SecureCodeAgent(AgentBase):
             "generation_result": response,
             "mode": mode,
             "language": language,
-            "existing_lines": (
-                existing_code.count("\n") + 1 if existing_code else 0
-            ),
+            "existing_lines": (existing_code.count("\n") + 1 if existing_code else 0),
             "model_used": type(model_backend).__name__,
         }
