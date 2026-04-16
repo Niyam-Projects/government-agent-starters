@@ -1,27 +1,91 @@
-# FinOps Review Agent — configuration
+# FinOps, Cloud Optimization & Architecture Review Agent — configuration
 
 agent:
   name: finops_review_agent
-  version: "0.1.0"
-  max_input_tokens: 8192
+  version: "0.2.0"
+  max_input_tokens: 16384
   output_format: json
 
 cloud_providers:
   - aws
   - azure
   - gcp
+  - oracle
+  - ibm
+  - on_prem
+  - hybrid
   - generic
 
+# Cost driver categories the agent explicitly enumerates in its review.
+cost_drivers:
+  - compute
+  - storage
+  - transfer
+  - licensing
+  - duplication
+  - operational_overhead
+  - ai_ml_llm_usage
+
+# Optimization categories used to tag recommendations.
 optimization_categories:
   - rightsizing
-  - reserved_instances
+  - reserved_capacity
   - spot_usage
   - idle_resources
   - storage_tiering
   - network_optimization
   - licensing
+  - duplication
+  - architecture_simplification
+  - ai_rightsizing
+  - operations
+
+# Architecture-quality dimensions evaluated in every review.
+architecture_dimensions:
+  - resilience
+  - supportability
+  - interoperability
+  - compliance_impact
+  - security_posture
+  - technical_debt
+
+# Allowed recommendation actions for any finding.
+recommendation_actions:
+  - keep
+  - optimize
+  - replace
+  - defer
+
+# Right-sizing questions applied to any AI/ML/LLM component.
+ai_rightsizing_checks:
+  - deterministic_or_rules_sufficient
+  - classical_ml_sufficient
+  - small_or_open_model_viable
+  - frontier_model_justified
+  - prompt_context_minimized
+  - caching_or_batching_viable
+  - distillation_viable
+  - data_residency_or_compliance_fit
 
 thresholds:
   high_spend_pct: 20
   underutilized_cpu_pct: 10
   idle_days: 7
+  # LLM right-sizing heuristics (guidance only, not pricing).
+  llm_frontier_tokens_per_request_ceiling: 8000
+  llm_monthly_spend_review_threshold_usd: 5000
+
+# Mission-value weighting applied when ranking recommendations.
+mission_weighting:
+  mission_impact: 0.4
+  cost_savings: 0.3
+  risk_reduction: 0.2
+  implementation_effort: 0.1
+
+# Defaults for decision-ready memo output.
+memo_defaults:
+  audience: "program leadership"
+  tone: "decision-oriented"
+  quantify_when_data_exists: true
+  flag_assumptions: true
+  flag_telemetry_gaps: true
