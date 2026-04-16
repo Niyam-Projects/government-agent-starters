@@ -1,5 +1,5 @@
 {
-  "project_data": "Project: Cloud Migration Phase 2. Sprint 14 completed. 3 of 5 workloads migrated. IAM integration delayed by 1 week due to dependency on identity provider configuration. Performance testing for workload 3 passed. Budget utilization at 62% of annual allocation. Team capacity reduced by 1 FTE (parental leave). Next sprint: begin workload 4 migration and resolve IAM blocker.",
-  "artifact_type": "status_report",
-  "audience": "executive"
+  "project_data": "Program: Cloud Migration Phase 2. Reporting period: week of 2026-04-13. Sources: JIRA sprint 14 report, 2026-04-14 standup notes, risk register entry R-042, perf test report PT-0414. Accomplishments: 3 of 5 workloads migrated (CM-231, CM-232, CM-233 closed); performance testing for workload 3 passed all benchmarks (PT-0414). Blockers: IAM integration delayed 1 week, pending identity provider configuration (ticket CM-240, owner: IAM team). Risks: R-042 likelihood increased from Low to Medium due to FTE reduction (parental leave effective 2026-04-20). Metrics: budget utilization 62% of annual allocation; sprint velocity 34 points (vs. 40 planned). Next sprint: begin workload 4 migration (CM-241), resolve IAM blocker. Decision needed: approve revised IAM integration timeline (+1 week).",
+  "artifact_type": "weekly_status_report",
+  "audience": "executive_leadership"
 }

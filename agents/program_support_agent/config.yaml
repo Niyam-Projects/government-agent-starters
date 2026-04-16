@@ -1,20 +1,30 @@
-# Program Support Agent — configuration
+# Program Support & Audit-Ready Artifact Agent — configuration
 
 agent:
   name: program_support_agent
-  version: "0.1.0"
+  version: "0.2.0"
   max_input_tokens: 8192
   output_format: json
 
 artifact_types:
-  - status_report
-  - risk_register
-  - milestone_summary
-  - stakeholder_brief
-  - decision_log
+  - weekly_status_report
+  - monthly_pmr_brief
+  - risk_issue_register_update
+  - decision_memo
+  - audit_evidence_index
+  - meeting_summary
+  - executive_one_pager
 
 audiences:
-  - executive
-  - technical
-  - stakeholders
-  - program_office
+  - technical_team
+  - pmo
+  - executive_leadership
+  - audit_review_board
+
+principles:
+  - accuracy_over_verbosity
+  - never_invent_status
+  - label_missing_data
+  - differentiate_facts_risks_decisions_recommendations
+  - preserve_source_traceability
+  - flag_human_review_required
