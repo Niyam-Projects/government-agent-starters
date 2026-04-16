@@ -1,0 +1,11 @@
+{
+  "agent_name": "compliance_audit_agent",
+  "status": "success",
+  "result": {
+    "compliance_analysis": "{\"framework\":\"NIST 800-53\",\"controls\":[{\"control_id\":\"AC-2\",\"title\":\"Account Management\",\"status\":\"partially_compliant\",\"evidence\":\"MFA for admin access is documented. General account lifecycle procedures not described.\",\"gaps\":[\"No mention of account provisioning/deprovisioning process\"],\"remediation\":[\"Document full account management lifecycle\"]},{\"control_id\":\"SC-8\",\"title\":\"Transmission Confidentiality and Integrity\",\"status\":\"compliant\",\"evidence\":\"TLS 1.2 for all data in transit.\",\"gaps\":[],\"remediation\":[]}],\"overall_posture\":\"Partially compliant — 2 of 5 controls require remediation.\",\"risk_items\":[\"Account management lifecycle not fully documented\"]}",
+    "framework": "NIST 800-53",
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}

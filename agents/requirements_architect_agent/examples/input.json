@@ -1,0 +1,4 @@
+{
+  "requirements_text": "The system must support role-based access control with at least three levels: admin, reviewer, and viewer. All data at rest must be encrypted using AES-256. The system should integrate with an existing LDAP directory for authentication. Reports must be exportable in PDF and CSV formats. Response time for search queries should be under 2 seconds for datasets up to 1 million records. The UI must be accessible and comply with WCAG 2.1 AA standards. An audit trail must capture all user actions with timestamps.",
+  "context": "Enterprise compliance management platform for a federal agency."
+}

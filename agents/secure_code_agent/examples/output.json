@@ -1,0 +1,12 @@
+{
+  "agent_name": "secure_code_agent",
+  "status": "success",
+  "result": {
+    "security_review": "{\"findings\":[{\"id\":\"SEC-001\",\"severity\":\"critical\",\"title\":\"SQL Injection\",\"description\":\"User input is directly interpolated into SQL query string.\",\"cwe\":\"CWE-89\",\"owasp\":\"A03:2021 Injection\",\"line_range\":\"11\",\"remediation\":\"Use parameterized queries: cursor.execute('SELECT * FROM users WHERE name = ?', (username,))\"},{\"id\":\"SEC-002\",\"severity\":\"critical\",\"title\":\"Plaintext Password Storage\",\"description\":\"Passwords are written to a plaintext file without hashing.\",\"cwe\":\"CWE-256\",\"owasp\":\"A02:2021 Cryptographic Failures\",\"line_range\":\"22-23\",\"remediation\":\"Use bcrypt or argon2 for password hashing before storage.\"}],\"summary\":\"Two critical vulnerabilities found. Code requires immediate remediation.\",\"secure_practices\":[]}",
+    "lines_reviewed": 24,
+    "language": "python",
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}

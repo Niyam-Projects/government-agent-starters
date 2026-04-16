@@ -1,0 +1,11 @@
+{
+  "agent_name": "program_support_agent",
+  "status": "success",
+  "result": {
+    "generated_artifact": "## Status Report — Cloud Migration Phase 2\n\n**Overall Status:** At Risk\n**Reporting Period:** Sprint 14\n\n### Accomplishments\n- 3 of 5 workloads successfully migrated (60%)\n- Performance testing for workload 3 passed all benchmarks\n- Budget on track at 62% utilization\n\n### Risks & Blockers\n- IAM integration delayed 1 week (dependency on identity provider)\n- Team capacity reduced by 1 FTE\n\n### Next Steps\n- Begin workload 4 migration\n- Resolve IAM blocker with identity provider team\n\n### Decision Needed\n- Approve revised timeline for IAM integration",
+    "artifact_type": "status_report",
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}

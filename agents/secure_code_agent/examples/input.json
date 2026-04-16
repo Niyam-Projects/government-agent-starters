@@ -1,0 +1,5 @@
+{
+  "source_code": "import sqlite3\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/users')\ndef get_user():\n    username = request.args.get('name')\n    conn = sqlite3.connect('app.db')\n    cursor = conn.cursor()\n    query = f\"SELECT * FROM users WHERE name = '{username}'\"\n    cursor.execute(query)\n    results = cursor.fetchall()\n    conn.close()\n    return str(results)\n\n@app.route('/login', methods=['POST'])\ndef login():\n    password = request.form['password']\n    # Store password in plain text\n    with open('passwords.txt', 'a') as f:\n        f.write(password + '\\n')\n    return 'OK'\n",
+  "language": "python",
+  "focus_areas": ["SQL injection", "credential handling"]
+}

@@ -1,0 +1,11 @@
+{
+  "agent_name": "requirements_architect_agent",
+  "status": "success",
+  "result": {
+    "structured_requirements": "[{\"id\":\"REQ-001\",\"title\":\"Role-Based Access Control\",\"description\":\"The system must support role-based access control with at least three levels: admin, reviewer, and viewer.\",\"category\":\"security\",\"priority\":\"critical\",\"ambiguities\":[],\"dependencies\":[]},{\"id\":\"REQ-002\",\"title\":\"Data Encryption at Rest\",\"description\":\"All data at rest must be encrypted using AES-256.\",\"category\":\"security\",\"priority\":\"critical\",\"ambiguities\":[],\"dependencies\":[]},{\"id\":\"REQ-003\",\"title\":\"LDAP Integration\",\"description\":\"The system should integrate with an existing LDAP directory for authentication.\",\"category\":\"functional\",\"priority\":\"high\",\"ambiguities\":[\"'should' implies optional — confirm if mandatory\"],\"dependencies\":[\"REQ-001\"]},{\"id\":\"REQ-004\",\"title\":\"Report Export\",\"description\":\"Reports must be exportable in PDF and CSV formats.\",\"category\":\"functional\",\"priority\":\"medium\",\"ambiguities\":[],\"dependencies\":[]},{\"id\":\"REQ-005\",\"title\":\"Search Performance\",\"description\":\"Response time for search queries should be under 2 seconds for datasets up to 1 million records.\",\"category\":\"performance\",\"priority\":\"high\",\"ambiguities\":[],\"dependencies\":[]},{\"id\":\"REQ-006\",\"title\":\"WCAG 2.1 AA Accessibility\",\"description\":\"The UI must be accessible and comply with WCAG 2.1 AA standards.\",\"category\":\"compliance\",\"priority\":\"high\",\"ambiguities\":[],\"dependencies\":[]},{\"id\":\"REQ-007\",\"title\":\"Audit Trail\",\"description\":\"An audit trail must capture all user actions with timestamps.\",\"category\":\"security\",\"priority\":\"critical\",\"ambiguities\":[],\"dependencies\":[\"REQ-001\"]}]",
+    "input_length": 498,
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}

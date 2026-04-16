@@ -1,0 +1,5 @@
+{
+  "project_data": "Project: Cloud Migration Phase 2. Sprint 14 completed. 3 of 5 workloads migrated. IAM integration delayed by 1 week due to dependency on identity provider configuration. Performance testing for workload 3 passed. Budget utilization at 62% of annual allocation. Team capacity reduced by 1 FTE (parental leave). Next sprint: begin workload 4 migration and resolve IAM blocker.",
+  "artifact_type": "status_report",
+  "audience": "executive"
+}

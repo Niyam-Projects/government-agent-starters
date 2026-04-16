@@ -1,0 +1,20 @@
+# Program Support Agent — configuration
+
+agent:
+  name: program_support_agent
+  version: "0.1.0"
+  max_input_tokens: 8192
+  output_format: json
+
+artifact_types:
+  - status_report
+  - risk_register
+  - milestone_summary
+  - stakeholder_brief
+  - decision_log
+
+audiences:
+  - executive
+  - technical
+  - stakeholders
+  - program_office

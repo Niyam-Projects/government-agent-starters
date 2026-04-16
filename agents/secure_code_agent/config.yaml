@@ -1,0 +1,25 @@
+# Secure Code Agent — configuration
+
+agent:
+  name: secure_code_agent
+  version: "0.1.0"
+  max_input_tokens: 16384
+  output_format: json
+
+supported_languages:
+  - python
+  - javascript
+  - typescript
+  - java
+  - go
+
+severity_levels:
+  - critical
+  - high
+  - medium
+  - low
+  - informational
+
+frameworks:
+  - CWE
+  - OWASP Top 10

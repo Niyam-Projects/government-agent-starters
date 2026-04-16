@@ -1,0 +1,21 @@
+# Compliance Audit Agent — configuration
+
+agent:
+  name: compliance_audit_agent
+  version: "0.1.0"
+  max_input_tokens: 16384
+  output_format: json
+
+supported_frameworks:
+  - NIST 800-53
+  - NIST CSF
+  - FedRAMP
+  - SOC 2
+  - ISO 27001
+  - CMMC
+
+compliance_statuses:
+  - compliant
+  - partially_compliant
+  - non_compliant
+  - not_applicable

@@ -1,0 +1,21 @@
+# Requirements Architect Agent — configuration
+# Override these values per environment or via CLI flags.
+
+agent:
+  name: requirements_architect_agent
+  version: "0.1.0"
+  max_input_tokens: 8192
+  output_format: json
+
+categories:
+  - functional
+  - non-functional
+  - security
+  - compliance
+  - performance
+
+priority_levels:
+  - critical
+  - high
+  - medium
+  - low

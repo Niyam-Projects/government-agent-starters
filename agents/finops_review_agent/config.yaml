@@ -1,0 +1,27 @@
+# FinOps Review Agent — configuration
+
+agent:
+  name: finops_review_agent
+  version: "0.1.0"
+  max_input_tokens: 8192
+  output_format: json
+
+cloud_providers:
+  - aws
+  - azure
+  - gcp
+  - generic
+
+optimization_categories:
+  - rightsizing
+  - reserved_instances
+  - spot_usage
+  - idle_resources
+  - storage_tiering
+  - network_optimization
+  - licensing
+
+thresholds:
+  high_spend_pct: 20
+  underutilized_cpu_pct: 10
+  idle_days: 7

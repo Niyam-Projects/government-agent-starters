@@ -1,0 +1,12 @@
+{
+  "agent_name": "finops_review_agent",
+  "status": "success",
+  "result": {
+    "finops_analysis": "{\"total_spend\":\"$47,230\",\"top_services\":[{\"service\":\"EC2\",\"amount\":\"$18,400\"},{\"service\":\"RDS\",\"amount\":\"$8,900\"},{\"service\":\"S3\",\"amount\":\"$6,200\"}],\"recommendations\":[{\"id\":\"FIN-001\",\"category\":\"rightsizing\",\"title\":\"Rightsize EC2 Instances\",\"description\":\"42 instances averaging 23% utilization. Downsize to appropriate instance families.\",\"estimated_savings\":\"$9,200/mo\",\"effort\":\"medium\",\"priority\":1},{\"id\":\"FIN-002\",\"category\":\"idle_resources\",\"title\":\"Decommission Idle RDS Instances\",\"description\":\"2 of 6 RDS instances appear idle.\",\"estimated_savings\":\"$2,900/mo\",\"effort\":\"low\",\"priority\":2},{\"id\":\"FIN-003\",\"category\":\"storage_tiering\",\"title\":\"Implement S3 Lifecycle Policies\",\"description\":\"No lifecycle policies on 14 TB of storage.\",\"estimated_savings\":\"$2,400/mo\",\"effort\":\"low\",\"priority\":3}],\"anomalies\":[\"EC2 utilization at 23% suggests significant over-provisioning\"],\"summary\":\"Estimated $14,500/mo savings achievable through rightsizing, idle resource cleanup, and storage optimization.\"}",
+    "period": "monthly",
+    "cloud_provider": "aws",
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}
