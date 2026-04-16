@@ -1,5 +1,15 @@
 {
-  "artifact": "System Security Plan excerpt: The application uses TLS 1.2 for all data in transit. User sessions expire after 15 minutes of inactivity. Multi-factor authentication is required for all administrative access. Logs are retained for 90 days in a centralized SIEM. Database backups are performed daily and stored in an encrypted S3 bucket with cross-region replication.",
+  "artifact": "from flask import Flask, request\nimport sqlite3\n\napp = Flask(__name__)\n\n@app.route('/users')\ndef get_user():\n    name = request.args.get('name')\n    conn = sqlite3.connect('app.db')\n    cursor = conn.cursor()\n    cursor.execute(f\"SELECT * FROM users WHERE name = '{name}'\")\n    return str(cursor.fetchall())\n\n@app.route('/login', methods=['POST'])\ndef login():\n    password = request.form['password']\n    with open('passwords.txt', 'a') as f:\n        f.write(password + '\\n')\n    return 'OK'\n",
+  "artifact_type": "source_code",
+  "language": "python",
   "framework": "NIST 800-53",
-  "controls": ["AC-2", "AC-11", "AU-6", "SC-8", "CP-9"]
+  "controls": ["AC-3", "AU-2", "IA-5", "SC-8", "SI-10"],
+  "review_domains": [
+    "secure_coding",
+    "authn_authz",
+    "secrets_handling",
+    "logging_and_sensitive_data",
+    "api_hardening",
+    "operational_readiness"
+  ]
 }
