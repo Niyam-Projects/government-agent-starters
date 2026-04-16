@@ -1,4 +1,36 @@
 {
   "requirements_text": "The system must support role-based access control with at least three levels: admin, reviewer, and viewer. All data at rest must be encrypted using AES-256. The system should integrate with an existing LDAP directory for authentication. Reports must be exportable in PDF and CSV formats. Response time for search queries should be under 2 seconds for datasets up to 1 million records. The UI must be accessible and comply with WCAG 2.1 AA standards. An audit trail must capture all user actions with timestamps.",
-  "context": "Enterprise compliance management platform for a federal agency."
+  "context": "Enterprise compliance management platform for a federal agency. Zero-trust environment, FedRAMP Moderate target, no unrestricted internet egress from production.",
+  "artifacts": [
+    {
+      "type": "statement_of_work",
+      "name": "SOW-2026-014 Compliance Platform Modernization",
+      "content": "Modernize the legacy compliance tracker to support 10,000 concurrent users across 14 bureaus. Delivery must align with Authority to Operate (ATO) in under 9 months."
+    },
+    {
+      "type": "conops",
+      "name": "CONOPS v1.2",
+      "content": "Reviewers triage incoming artifacts, route them to subject-matter experts, and produce signed compliance attestations. Admins manage users and retention policy."
+    },
+    {
+      "type": "jira_ticket",
+      "name": "CMP-412 SSO via agency LDAP",
+      "content": "As a reviewer I want single sign-on via the agency LDAP so I do not manage a separate password."
+    },
+    {
+      "type": "interface_control_document",
+      "name": "ICD-ARTIFACT-INGEST",
+      "content": "Upstream artifact service publishes JSON documents to an internal SFTP drop. Polling interval 5 minutes, max payload 25 MB."
+    },
+    {
+      "type": "source_code",
+      "name": "legacy_exporter.py",
+      "content": "def export_csv(rows): with open('/tmp/out.csv','w') as f: for r in rows: f.write(','.join(r)+'\\n')"
+    },
+    {
+      "type": "operations_runbook",
+      "name": "RB-INCIDENT-P2",
+      "content": "On P2 incident: page on-call, snapshot audit log, open ServiceNow ticket, notify ISSO within 1 hour."
+    }
+  ]
 }

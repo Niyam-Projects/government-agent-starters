@@ -1,7 +1,8 @@
 """Requirements Architect Agent implementation.
 
-Analyzes unstructured requirements text and produces structured, prioritized
-requirements with traceability metadata.
+Converts mission needs, policy constraints, legacy documentation, tickets,
+and codebase context into an implementation-ready technical architecture
+package for U.S. government software delivery teams.
 """
 
 from __future__ import annotations
@@ -16,8 +17,11 @@ from niyam.sdk import AgentBase, AgentInput
 
 class RequirementsArchitectAgent(AgentBase):
     name = "requirements_architect_agent"
-    version = "0.1.0"
-    description = "Analyzes and structures project requirements into traceable artifacts."
+    version = "0.2.0"
+    description = (
+        "Converts mission needs and mixed artifacts into a traceable, "
+        "implementation-ready technical architecture package."
+    )
 
     def __init__(self, config_path: Path | None = None) -> None:
         super().__init__(config_path)
@@ -27,21 +31,32 @@ class RequirementsArchitectAgent(AgentBase):
 
     def validate_input(self, agent_input: AgentInput) -> list[str]:
         errors: list[str] = []
-        if not agent_input.payload.get("requirements_text"):
-            errors.append("'requirements_text' is required in payload.")
+        payload = agent_input.payload
+        if not payload.get("requirements_text") and not payload.get("artifacts"):
+            errors.append(
+                "At least one of 'requirements_text' or 'artifacts' is required in payload."
+            )
+        artifacts = payload.get("artifacts")
+        if artifacts is not None and not isinstance(artifacts, list):
+            errors.append("'artifacts' must be a list when provided.")
         return errors
 
     def _run(self, agent_input: AgentInput, model_backend: Any) -> dict[str, Any]:
+        payload = agent_input.payload
+        artifacts = payload.get("artifacts") or []
+
         template = Template(self.prompt_template)
         prompt = template.render(
-            requirements_text=agent_input.payload["requirements_text"],
-            context=agent_input.payload.get("context", ""),
+            requirements_text=payload.get("requirements_text", ""),
+            context=payload.get("context", ""),
+            artifacts=artifacts,
         )
 
         response = model_backend.generate(prompt)
 
         return {
-            "structured_requirements": response,
-            "input_length": len(agent_input.payload["requirements_text"]),
+            "architecture_package": response,
+            "input_length": len(payload.get("requirements_text", "")),
+            "artifact_count": len(artifacts),
             "model_used": type(model_backend).__name__,
         }
