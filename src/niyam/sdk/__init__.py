@@ -6,6 +6,7 @@ that agent authors depend on.
 """
 
 from niyam.sdk.agent import AgentBase, AgentInput, AgentOutput
+from niyam.sdk.mcp import MCPToolRef, MCPToolRequirements
 from niyam.sdk.protocols import Connector, ModelBackend
 
 __all__ = [
@@ -13,5 +14,7 @@ __all__ = [
     "AgentInput",
     "AgentOutput",
     "Connector",
+    "MCPToolRef",
+    "MCPToolRequirements",
     "ModelBackend",
 ]
