@@ -1,4 +1,4 @@
-"""Secure Code Agent — reviews code for security vulnerabilities."""
+"""Secure Code Agent — generates and refactors production-grade code."""
 
 from agents.secure_code_agent.agent import SecureCodeAgent
 
