@@ -1,10 +1,14 @@
-# Secure Code Agent — configuration
+# Secure Code Generation & Refactor Agent — configuration
 
 agent:
   name: secure_code_agent
-  version: "0.1.0"
-  max_input_tokens: 16384
+  version: "0.2.0"
+  max_input_tokens: 32768
   output_format: json
+
+modes:
+  - generate
+  - refactor
 
 supported_languages:
   - python
@@ -13,13 +17,26 @@ supported_languages:
   - java
   - go
 
-severity_levels:
-  - critical
-  - high
-  - medium
-  - low
-  - informational
+output_sections:
+  - change_summary         # A
+  - assumptions            # B
+  - implementation_plan    # C
+  - code_changes           # D
+  - test_coverage          # E
+  - security_considerations  # F
+  - rollback_notes         # G
+  - reviewer_checklist     # H
+
+principles:
+  - security_first
+  - accessibility_by_default
+  - small_composable_changes
+  - preserve_backward_compatibility
+  - explicit_tradeoffs
+  - no_silent_business_logic_removal
 
 frameworks:
   - CWE
   - OWASP Top 10
+  - NIST SSDF
+  - Section 508 / WCAG 2.1 AA (UI code)

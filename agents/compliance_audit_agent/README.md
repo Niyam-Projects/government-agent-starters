@@ -35,4 +35,4 @@ niyam run compliance_audit_agent \
 
 - Edit `prompt.md` to add framework-specific evaluation criteria.
 - Add custom control mappings in `config.yaml`.
-- Chain with `secure_code_agent` for code-level compliance checks.
+- Chain downstream of `secure_code_agent` to evaluate generated/refactored code against compliance controls.

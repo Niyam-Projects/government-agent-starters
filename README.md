@@ -224,7 +224,7 @@ agents/<agent_name>/
 | Agent | Description |
 |---|---|
 | `requirements_architect_agent` | Structures requirements into traceable, categorized artifacts |
-| `secure_code_agent` | Reviews code for security vulnerabilities (CWE/OWASP aligned) |
+| `secure_code_agent` | Generates and refactors production-grade code with built-in security, testability, and compliance |
 | `compliance_audit_agent` | Evaluates artifacts against compliance frameworks (NIST, FedRAMP) |
 | `program_support_agent` | Generates program management artifacts (status reports, risk registers) |
 | `finops_review_agent` | Analyzes cloud spend and recommends cost optimizations |
