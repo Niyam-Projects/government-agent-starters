@@ -1,7 +1,9 @@
-"""Program Support Agent implementation.
+"""Program Support & Audit-Ready Artifact Agent implementation.
 
-Assists with program management artifacts: status reports, risk registers,
-milestone summaries, and stakeholder communications.
+Transforms operational project data into audit-ready program artifacts:
+weekly status reports, monthly PMR briefs, risk and issue register
+updates, decision memos, audit evidence indexes, meeting summaries, and
+executive one-pagers.
 """
 
 from __future__ import annotations
@@ -16,8 +18,10 @@ from niyam.sdk import AgentBase, AgentInput
 
 class ProgramSupportAgent(AgentBase):
     name = "program_support_agent"
-    version = "0.1.0"
-    description = "Generates program management artifacts from project data."
+    version = "0.2.0"
+    description = (
+        "Generates audit-ready program artifacts from operational project data."
+    )
 
     def __init__(self, config_path: Path | None = None) -> None:
         super().__init__(config_path)
@@ -38,7 +42,7 @@ class ProgramSupportAgent(AgentBase):
         prompt = template.render(
             project_data=agent_input.payload["project_data"],
             artifact_type=agent_input.payload["artifact_type"],
-            audience=agent_input.payload.get("audience", "stakeholders"),
+            audience=agent_input.payload.get("audience", "pmo"),
         )
 
         response = model_backend.generate(prompt)
