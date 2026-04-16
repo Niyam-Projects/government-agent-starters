@@ -28,3 +28,21 @@ principles:
   - differentiate_facts_risks_decisions_recommendations
   - preserve_source_traceability
   - flag_human_review_required
+
+# MCP tools the AIOL must wire up for this agent.
+# Schema: niyam.sdk.mcp.MCPToolRef
+mcp_tools:
+  - server: jira
+    tool: jira_search
+    required: true
+    description: Query JIRA issues to ground status reports and risk register updates in real project data.
+  - server: jira
+    tool: jira_get_issue
+    required: true
+    description: Fetch full issue detail (status, assignee, comments) for evidence traceability.
+  - server: jira
+    tool: jira_create_issue
+    description: Open new risks or issues identified during PMR briefs.
+  - server: jira
+    tool: jira_add_comment
+    description: Record decisions or audit evidence pointers back onto the source issue.
