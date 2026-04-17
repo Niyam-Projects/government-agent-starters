@@ -1,0 +1,8 @@
+# TODO: Agent configuration
+# Update with your agent's settings.
+
+agent:
+  name: new_agent
+  version: "0.1.0"
+  max_input_tokens: 8192
+  output_format: json

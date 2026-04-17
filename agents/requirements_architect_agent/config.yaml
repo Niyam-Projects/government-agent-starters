@@ -1,0 +1,64 @@
+# Requirements Architect Agent — configuration
+# Override these values per environment or via CLI flags.
+
+agent:
+  name: requirements_architect_agent
+  version: "0.2.0"
+  max_input_tokens: 16384
+  output_format: markdown
+
+# Requirement categories produced in the inventory.
+categories:
+  - functional
+  - non-functional
+  - security
+  - compliance
+  - performance
+  - accessibility
+  - interoperability
+  - data
+
+priority_levels:
+  - critical
+  - high
+  - medium
+  - low
+
+# Classification bucket for every extracted item.
+item_classifications:
+  - must-have
+  - enhancement
+  - deferred
+  - risk-or-blocker
+
+# Artifact types the agent knows how to parse.
+artifact_types:
+  - statement_of_work
+  - conops
+  - jira_ticket
+  - xray_ticket
+  - architecture_diagram
+  - interface_control_document
+  - source_code
+  - operations_runbook
+  - policy_memo
+
+# Roadmap horizons used for the phased implementation plan.
+roadmap_horizons:
+  - "30_days"
+  - "60_days"
+  - "90_days"
+  - "beyond_90_days"
+
+# Sections produced in the architecture package, in order.
+output_sections:
+  - A_executive_summary
+  - B_mission_problem_statement
+  - C_requirements_inventory
+  - D_current_state_assessment
+  - E_target_state_architecture
+  - F_risks_unknowns_government_decisions
+  - G_ai_suitability_analysis
+  - H_backlog_with_priorities
+  - I_traceability_matrix
+  - J_recommended_first_sprint

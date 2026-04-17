@@ -1,0 +1,10 @@
+{
+  "spend_data": "Monthly cloud spend summary: Total $47,230. EC2 instances: $18,400 (42 instances, avg utilization 23%). RDS databases: $8,900 (6 instances, 2 appear idle). S3 storage: $6,200 (14 TB, no lifecycle policies). Data transfer: $5,100 (cross-region replication enabled on all buckets). Lambda: $3,800. CloudWatch: $2,400. LLM API (frontier model): $2,430 (document summarization for case workers, ~9k requests/month, average 6k input tokens + 1.5k output tokens).",
+  "period": "monthly",
+  "cloud_provider": "aws",
+  "architecture_summary": "Three-tier case-management system in a single AWS region (us-east-1). ALB → 42 EC2 instances (m5.xlarge) → 6 RDS PostgreSQL instances. Documents land in S3 and are summarized by a frontier LLM. Cross-region replication enabled on all S3 buckets. CloudWatch used for logs and metrics.",
+  "proposed_change": "Program office wants to add a second region for DR, add a second LLM provider for redundancy, and move all document ingest to Lambda. Target go-live in 90 days.",
+  "ai_usage": "One LLM use case: summarize inbound case documents (avg 5 pages) for case workers. Currently using a frontier model via public API. No caching. No retrieval; full document is passed in the prompt. Output is free-text summary, pasted into the case record.",
+  "mission_context": "FedRAMP Moderate boundary. ~300 case workers. Peak load weekday business hours. Data includes CUI. Budget is fixed for FY; mission priority is throughput and auditability, not novel capability.",
+  "telemetry_gaps": "No per-instance CPU/memory granularity beyond 7-day CloudWatch retention. No tagging discipline across accounts. No RI/SP coverage report. No LLM token-usage dashboard."
+}

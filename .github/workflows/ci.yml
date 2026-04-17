@@ -1,0 +1,91 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies and audit tool
+        run: uv pip install --system -e ".[dev]" pip-audit
+
+      - name: Dependency audit
+        run: pip-audit
+        env:
+          XDG_CACHE_HOME: ${{ github.workspace }}/.cache
+
+  lint:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies
+        run: uv pip install --system -e ".[dev]"
+
+      - name: Ruff lint
+        run: ruff check src agents tests
+
+      - name: Ruff format
+        run: ruff format --check src agents tests
+
+      - name: Mypy
+        run: mypy src/niyam agents --ignore-missing-imports
+
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Install dependencies
+        run: uv pip install --system -e ".[dev]"
+
+      - name: Run tests
+        run: pytest --cov=niyam --cov=agents --cov-report=term-missing -v
+
+  docker:
+    name: Docker Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker build -t niyam-agent-starters:ci .
+
+      - name: Verify CLI runs
+        run: docker run --rm niyam-agent-starters:ci --version

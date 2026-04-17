@@ -1,0 +1,9 @@
+{
+  "agent_name": "new_agent",
+  "status": "success",
+  "result": {
+    "result": "Sample output from the agent."
+  },
+  "errors": [],
+  "timestamp": "2025-01-15T12:00:00+00:00"
+}

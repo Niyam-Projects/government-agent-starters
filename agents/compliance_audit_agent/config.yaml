@@ -1,0 +1,59 @@
+# Compliance, Security, and Accessibility Audit Loop Agent — configuration
+
+agent:
+  name: compliance_audit_agent
+  version: "0.2.0"
+  max_input_tokens: 16384
+  output_format: markdown
+
+supported_frameworks:
+  - multi-domain
+  - NIST 800-53
+  - NIST CSF
+  - FedRAMP
+  - SOC 2
+  - ISO 27001
+  - CMMC
+  - Section 508
+  - WCAG 2.1 AA
+
+severity_levels:
+  - critical
+  - high
+  - moderate
+  - low
+  - informational
+
+review_domains:
+  - secure_coding
+  - authn_authz
+  - secrets_handling
+  - logging_and_sensitive_data
+  - dependency_risk
+  - api_hardening
+  - accessibility_508
+  - operational_readiness
+
+confidence_labels:
+  - confirmed
+  - human_validation_required
+
+review_modes:
+  - initial
+  - recheck
+
+output_sections:
+  - "A. Overall Release Readiness Status"
+  - "B. Security Findings"
+  - "C. Accessibility Findings"
+  - "D. Operational / Logging / Monitoring Findings"
+  - "E. Remediation Recommendations"
+  - "F. Evidence Artifacts to Retain"
+  - "G. Human Validation Required"
+  - "H. Final Go / No-Go Recommendation"
+
+recheck_dispositions:
+  - resolved
+  - partially_resolved
+  - unchanged
+  - regressed

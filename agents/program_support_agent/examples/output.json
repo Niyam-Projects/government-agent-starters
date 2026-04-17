@@ -1,0 +1,11 @@
+{
+  "agent_name": "program_support_agent",
+  "status": "success",
+  "result": {
+    "generated_artifact": "# Weekly Status Report — Cloud Migration Phase 2\n\n**Reporting Period:** Week of 2026-04-13\n**Audience:** Executive Leadership\n**Overall Status:** At Risk (IAM blocker + FTE reduction)\n\n## What leadership needs to know\n- 3 of 5 workloads migrated; on pace except for IAM integration.\n- IAM integration slipped 1 week; decision needed on revised timeline.\n- Risk R-042 elevated Low → Medium due to 1 FTE on parental leave.\n- Budget healthy at 62% utilization; velocity below plan (34 vs. 40).\n\n## Accomplishments\n- Workloads 1–3 migrated (CM-231, CM-232, CM-233 closed).\n- Performance testing for workload 3 passed all benchmarks (PT-0414).\n\n## Planned Next Week\n- Begin workload 4 migration (CM-241).\n- Resolve IAM integration blocker with identity provider team.\n\n## Blockers & Dependencies\n- CM-240: IAM integration delayed pending identity provider configuration (owner: IAM team).\n\n## Risks & Issues\n- R-042: FTE reduction (parental leave effective 2026-04-20). Likelihood Low → Medium. Mitigation: [NOT PROVIDED].\n\n## Metrics\n- Budget utilization: 62% of annual allocation.\n- Sprint 14 velocity: 34 points (planned 40).\n- Workload migration progress: 3/5 (60%).\n\n## Decisions Needed\n- Approve revised IAM integration timeline (+1 week).\n\n## Quality Check\n- Missing: mitigation plan for R-042; schedule impact of IAM slip on downstream milestones; test coverage metrics.\n- Unverifiable without source: whether velocity drop is solely attributable to FTE reduction.\n- Human review required before release: confirm decision authority for IAM timeline change; validate risk rating change with risk owner.",
+    "artifact_type": "weekly_status_report",
+    "model_used": "MockBackend"
+  },
+  "errors": [],
+  "timestamp": "2026-04-16T12:00:00+00:00"
+}

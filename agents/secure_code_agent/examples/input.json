@@ -1,0 +1,19 @@
+{
+  "mode": "refactor",
+  "task_description": "Refactor the /users and /login Flask endpoints to remove SQL injection and insecure plaintext password storage. Preserve the public URL contract and response shape where possible.",
+  "requirements": "Endpoints must validate and bind all user input, use parameterized SQL, hash credentials with a vetted algorithm, and log auth events without leaking secrets. Backward compatibility with existing clients on the /users and /login routes is required.",
+  "language": "python",
+  "existing_code": "import sqlite3\nfrom flask import Flask, request\n\napp = Flask(__name__)\n\n@app.route('/users')\ndef get_user():\n    username = request.args.get('name')\n    conn = sqlite3.connect('app.db')\n    cursor = conn.cursor()\n    query = f\"SELECT * FROM users WHERE name = '{username}'\"\n    cursor.execute(query)\n    results = cursor.fetchall()\n    conn.close()\n    return str(results)\n\n@app.route('/login', methods=['POST'])\ndef login():\n    password = request.form['password']\n    with open('passwords.txt', 'a') as f:\n        f.write(password + '\\n')\n    return 'OK'\n",
+  "stack_context": "Flask 3.x, SQLite via sqlite3 stdlib, argon2-cffi approved for password hashing, structured logging via the stdlib 'logging' module.",
+  "constraints": [
+    "No new external dependencies beyond argon2-cffi (already approved)",
+    "FIPS-compatible cryptography only",
+    "Must run under Python 3.11"
+  ],
+  "focus_areas": [
+    "SQL injection",
+    "credential handling",
+    "input validation",
+    "audit logging"
+  ]
+}
