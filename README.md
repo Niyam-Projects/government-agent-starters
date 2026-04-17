@@ -11,6 +11,14 @@
 
 ---
 
+## Demo
+
+A quick look at the `program_support_agent` generating program management artifacts:
+
+![Program Support Agent demo](docs/images/program_support_agent.gif)
+
+---
+
 ## What This Is
 
 This repository contains the **open-source SDK** and **starter agents** for the **Niyam AI Orchestration Layer (AIOL)**. It provides everything you need to build, test, and contribute agents that run on the AIOL.
@@ -46,16 +54,6 @@ This is not the Niyam AIOL itself. The AIOL provides the security and operationa
 | **Templates** | Scaffolding for creating new agents | Yes |
 | **AIOL Security** | Production security controls for government and enterprise workloads | No — Niyam AIOL |
 | **AIOL Operations** | Production model inference, enterprise integrations, workflows, deployment | No — Niyam AIOL |
-
----
-
-## Demo
-
-A quick look at the `program_support_agent` generating program management artifacts:
-
-<video src="https://github.com/Niyam-Projects/government-agent-starters/raw/main/docs/videos/program_support_agent.mp4" controls width="100%"></video>
-
-> If the video doesn't play inline, [watch it here](docs/videos/program_support_agent.mp4).
 
 ---
 
